@@ -117,15 +117,16 @@ Resources:
             enabled=1
             gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc" 
 
-            
+
             sudo yum install -y mongodb-org
             sudo service mongod start
 
 
             # Run server
-            #cd app
-            #npm install
-            #npm start
+            cd app
+            npm install
+            npm start
+            npm run development
           EOF
 
           chown ec2-user:ec2-user /tmp/install_script.sh && chmod a+x /tmp/install_script.sh
