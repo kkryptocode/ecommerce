@@ -72,7 +72,6 @@ Resources:
           /etc/yum.repos.d/mongodb-org-4.4.repo:
             content:
               'Fn::Join':
-               
                 - - |
                     [mongodb-org-4.4]
                   - |
