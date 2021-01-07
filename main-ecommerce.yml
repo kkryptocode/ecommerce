@@ -67,6 +67,24 @@ Resources:
             # ruby: []
               wget: []
               unzip: []    
+          
+          files:
+          /etc/yum.repos.d/mongodb-org-4.4.repo:
+            content:
+              'Fn::Join':
+                - ''
+                - - |
+                    [mongodb-org-4.4]
+                  - |
+                    name=MongoDB Repository
+                  - >
+                    baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/4.4/x86_64/
+                  - |
+                    gpgcheck=1
+                  - |
+                    enabled=1
+                  - >
+                    gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc  
 
     Properties:
       ImageId: !Ref EC2AMI
@@ -103,19 +121,14 @@ Resources:
             nvm use v12.7.0
 
             # Download latest code, unzip it into /home/ec2-user/app
-            #wget https://github.com/implement1/automatic-ecommerce/archive/master.zip 
-            #unzip master.zip
-            #mv automatic-ecommerce app
+            wget https://github.com/implement1/automatic-ecommerce/archive/master.zip 
+            unzip master.zip
+            mv automatic-ecommerce app
 
             # Create log directory
             mkdir -p /home/ec2-user/app/logs
 
-            echo "[mongodb-org-4.4]
-            name=MongoDB Repository
-            baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/4.4/x86_64/
-            gpgcheck=1
-            enabled=1
-            gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc" 
+            
 
 
             sudo yum install -y mongodb-org
