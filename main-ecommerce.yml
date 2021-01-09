@@ -125,7 +125,7 @@ Resources:
             # Download latest code, unzip it into /home/ec2-user/app
             wget https://github.com/implement1/automatic-ecommerce/archive/master.zip 
             unzip master.zip
-            mv automatic-ecommerce app
+            mv automatic-ecommerce-master app
 
             # Create log directory
             mkdir -p /home/ec2-user/app/logs
@@ -140,7 +140,7 @@ Resources:
             cd app
             npm install
             npm start
-            npm run development
+            
           EOF
 
           chown ec2-user:ec2-user /tmp/install_script.sh && chmod a+x /tmp/install_script.sh
@@ -152,6 +152,7 @@ Resources:
           # Install mongodb
           yum install -y mongodb-org
           service mongod start
+          npm run development
           # Signal to CloudFormation that the instance is ready
           /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --region ${AWS::Region} --resource Instance 
           
