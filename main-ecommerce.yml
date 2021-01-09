@@ -133,8 +133,7 @@ Resources:
             
 
 
-            sudo yum install -y mongodb-org
-            sudo service mongod start
+             
 
 
             # Run server
@@ -149,6 +148,10 @@ Resources:
 
           # Have CloudFormation install any files and packages from the metadata
           /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --region ${AWS::Region} --resource Instance
+
+          # Install mongodb
+          yum install -y mongodb-org
+          service mongod start
           # Signal to CloudFormation that the instance is ready
           /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --region ${AWS::Region} --resource Instance 
           
