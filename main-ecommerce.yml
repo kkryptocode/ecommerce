@@ -148,7 +148,9 @@ Resources:
             # Run server
             cd app
             npm install
-            npm start
+           # npm start
+             echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+             
             
           EOF
 
