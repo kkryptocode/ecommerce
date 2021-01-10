@@ -13,7 +13,7 @@ Resources:
       GroupDescription: !Sub 'Internal Security group for ${AWS::StackName}'
       SecurityGroupIngress:
         - IpProtocol: tcp
-          FromPort: 0000
+          FromPort: 3002
           ToPort: 3002
           CidrIp: 0.0.0.0/0
         - IpProtocol: tcp
@@ -90,7 +90,9 @@ Resources:
            00-install-mongodb: 
             command: "yum install -y mongodb-org"
             cwd: "/etc/yum.repos.d/"
-          
+           01-start application: 
+            command: "npm run development"    
+            cwd: "/etc/yum.repos.d/"  
           services:
             sysvinit:
               mongod:
