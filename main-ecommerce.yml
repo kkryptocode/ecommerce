@@ -92,7 +92,7 @@ Resources:
             cwd: "/etc/yum.repos.d/"
            01-start application: 
             command: "npm run development"    
-            cwd: "/etc/yum.repos.d/"  
+            cwd: "/home/ec2-user/app"  
           services:
             sysvinit:
               mongod:
