@@ -86,7 +86,16 @@ Resources:
                   - |
                     gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc      
 
+          commands:
+          00-install-mongodb: 
+            command: "yum install -y mongodb-org"
+            cwd: "/etc/yum.repos.d/"
           
+          services:
+            sysvinit:
+              mongod:
+                enabled: true
+                ensureRunning: true  
 
     Properties:
       ImageId: !Ref EC2AMI
@@ -149,10 +158,8 @@ Resources:
           # Have CloudFormation install any files and packages from the metadata
           /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --region ${AWS::Region} --resource Instance
 
-          # Install mongodb
-          yum install -y mongodb-org
-          service mongod start
-          npm run development
+         
+          
           # Signal to CloudFormation that the instance is ready
           /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --region ${AWS::Region} --resource Instance 
           
