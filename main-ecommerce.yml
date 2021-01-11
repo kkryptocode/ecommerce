@@ -160,7 +160,7 @@ Resources:
           # Have CloudFormation install any files and packages from the metadata
           /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --region ${AWS::Region} --resource Instance
 
-         npm run development
+          npm run development
           
           # Signal to CloudFormation that the instance is ready
           /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --region ${AWS::Region} --resource Instance 
