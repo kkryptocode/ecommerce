@@ -148,7 +148,8 @@ Resources:
             # Run server
             cd app
             npm install
-           # npm start
+           #npm start
+            npm run development
              echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
              
             
@@ -159,9 +160,8 @@ Resources:
 
           # Have CloudFormation install any files and packages from the metadata
           /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --region ${AWS::Region} --resource Instance
+
           
-          cd /home/ec2-user/app/
-          npm run development
           
           # Signal to CloudFormation that the instance is ready
           /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --region ${AWS::Region} --resource Instance 
