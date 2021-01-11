@@ -90,9 +90,7 @@ Resources:
            00-install-mongodb: 
             command: "yum install -y mongodb-org"
             cwd: "/etc/yum.repos.d/"
-           01-start-application: 
-            command: "npm run development"    
-            cwd: "/home/ec2-user/app/"  
+            
           services:
             sysvinit:
               mongod:
@@ -162,7 +160,7 @@ Resources:
           # Have CloudFormation install any files and packages from the metadata
           /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --region ${AWS::Region} --resource Instance
 
-         
+         npm run development
           
           # Signal to CloudFormation that the instance is ready
           /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --region ${AWS::Region} --resource Instance 
