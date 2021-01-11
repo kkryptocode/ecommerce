@@ -159,7 +159,8 @@ Resources:
 
           # Have CloudFormation install any files and packages from the metadata
           /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --region ${AWS::Region} --resource Instance
-
+          
+          cd /home/ec2-user/app/
           npm run development
           
           # Signal to CloudFormation that the instance is ready
