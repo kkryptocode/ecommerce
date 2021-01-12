@@ -179,7 +179,7 @@ Resources:
     Type: AWS::EC2::EIP
     Properties:
       Domain: vpc
-      InstanceId: !Ref Windows        
+      InstanceId: !Ref Instance        
 
 Outputs:
   InstanceEndpoint:
