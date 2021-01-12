@@ -28,11 +28,7 @@ Resources:
         - Key: Name
           Value: !Ref AWS::StackName
 
-  ElasticIP:
-    Type: AWS::EC2::EIP
-    Properties:
-      Domain: vpc
-      InstanceId: !Ref Windows        
+          
 
   InstanceRole:
     Type: "AWS::IAM::Role"
@@ -57,6 +53,9 @@ Resources:
     Properties:
       Roles:
         - Ref: InstanceRole
+  
+  
+
 
   Instance:
     Type: AWS::EC2::Instance
@@ -175,6 +174,12 @@ Resources:
       Tags:
         - Key: Name
           Value: !Ref AWS::StackName
+
+  ElasticIP:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+      InstanceId: !Ref Windows        
 
 Outputs:
   InstanceEndpoint:
