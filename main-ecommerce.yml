@@ -103,7 +103,7 @@ Resources:
         config2:  
           commands:
            01-run-application: 
-            command: "npm development"
+            command: "npm run-script development"
             cwd: "/home/ec2-user/app"  
 
 
@@ -169,7 +169,7 @@ Resources:
             #. /home/ec2-user/app/.nvm/nvm.sh
             #. /home/ec2-user/app/.bashrc
             npm install
-           #npm start
+           #npm run-script deve
             
             echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
              
