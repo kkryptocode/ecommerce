@@ -103,8 +103,8 @@ Resources:
         config2:  
           commands:
            01-run-application: 
-            command: "npm run development"
-            cwd: "/home/ec2-user/app/"  
+            command: "npm development"
+            cwd: "/home/ec2-user/app"  
 
 
           services:
@@ -166,8 +166,8 @@ Resources:
 
             # Run server
             cd app
-            . /home/ec2-user/app/.nvm/nvm.sh
-            . /home/ec2-user/app/.bashrc
+            #. /home/ec2-user/app/.nvm/nvm.sh
+            #. /home/ec2-user/app/.bashrc
             npm install
            #npm start
             
@@ -177,7 +177,8 @@ Resources:
           EOF
 
           chown ec2-user:ec2-user /tmp/install_script.sh && chmod a+x /tmp/install_script.sh
-          sleep 1; sudo su - ec2-user -c "/tmp/install_script.sh" 
+          sleep 1; sudo su - ec2-user -c "/tmp/install_script.sh"
+          #sleep 1; /tmp/install_script.sh 
 
           # Have CloudFormation install any files and packages from the metadata
           /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --region ${AWS::Region} --resource Instance -c myset
