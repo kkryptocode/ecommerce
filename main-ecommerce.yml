@@ -177,7 +177,7 @@ Resources:
           EOF
 
           chown ec2-user:ec2-user /tmp/install_script.sh && chmod a+x /tmp/install_script.sh
-          sleep 1; sudo su - ec2-user -c "/tmp/install_script.sh"
+          sleep 1; su - ec2-user -c "/tmp/install_script.sh"
           #sleep 1; /tmp/install_script.sh 
 
           # Have CloudFormation install any files and packages from the metadata
