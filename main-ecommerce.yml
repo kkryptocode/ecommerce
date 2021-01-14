@@ -66,7 +66,11 @@ Resources:
 
     Metadata:
       AWS::CloudFormation::Init:
-        config:
+        configSets: 
+          myset: 
+           - "config1"
+           - "config2"  
+        config1:
           packages: 
             yum:
             # ruby: []
@@ -95,7 +99,14 @@ Resources:
            00-install-mongodb: 
             command: "yum install -y mongodb-org"
             cwd: "/etc/yum.repos.d/"
-            
+
+        config2:  
+          commands:
+           00-run-application: 
+            command: "npm run development"
+            cwd: "/home/ec2-user/app"  
+
+
           services:
             sysvinit:
               mongod:
@@ -164,7 +175,7 @@ Resources:
           sleep 1; sudo su - ec2-user -c "/tmp/install_script.sh" 
 
           # Have CloudFormation install any files and packages from the metadata
-          /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --region ${AWS::Region} --resource Instance
+          /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --region ${AWS::Region} --resource Instance -c myset
 
          
           
