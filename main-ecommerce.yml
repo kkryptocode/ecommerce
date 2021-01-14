@@ -100,11 +100,11 @@ Resources:
             command: "yum install -y mongodb-org"
             cwd: "/etc/yum.repos.d/"
 
-        config2:  
-          commands:
-           01-run-application: 
-            command: "npm run-script development"
-            cwd: "/home/ec2-user/app"  
+      #  config2:  
+      #    commands:
+      #     01-run-application: 
+      #      command: "npm run-script development"
+      #      cwd: "/home/ec2-user/app"  
 
 
           services:
