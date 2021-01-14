@@ -139,10 +139,10 @@ Resources:
             curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
             # Dot source the files to ensure that variables are available within the current shell
-            . /home/ec2-user/app/.nvm/nvm.sh
-            #. /home/ec2-user/.nvm/nvm.sh
-            . /home/ec2-user/app/.bashrc
-            #. /home/ec2-user/.bashrc
+            
+            . /home/ec2-user/.nvm/nvm.sh
+            
+            . /home/ec2-user/.bashrc
 
             # Install NVM, NPM, Node.JS
             nvm alias default v14.15.4
@@ -153,6 +153,7 @@ Resources:
             wget https://github.com/implement1/automatic-ecommerce/archive/master.zip 
             unzip master.zip
             mv automatic-ecommerce-master app
+            
 
             # Create log directory
             mkdir -p /home/ec2-user/app/logs
@@ -165,6 +166,8 @@ Resources:
 
             # Run server
             cd app
+            . /home/ec2-user/app/.nvm/nvm.sh
+            . /home/ec2-user/app/.bashrc
             npm install
            #npm start
             
