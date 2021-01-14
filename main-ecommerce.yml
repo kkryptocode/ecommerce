@@ -102,7 +102,7 @@ Resources:
 
         config2:  
           commands:
-           00-run-application: 
+           01-run-application: 
             command: "npm run development"
             cwd: "/home/ec2-user/app"  
 
