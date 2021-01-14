@@ -9,7 +9,6 @@
     "express",
     "mongodb",
     "node"
-    
   ],
   "repository": {
     "type": "git",
