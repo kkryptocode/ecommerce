@@ -104,7 +104,7 @@ Resources:
           commands:
            01-run-application: 
             command: "npm run development"
-            cwd: "/home/ec2-user/app"  
+            cwd: "/home/ec2-user/app/"  
 
 
           services:
@@ -143,9 +143,9 @@ Resources:
             . /home/ec2-user/.bashrc
 
             # Install NVM, NPM, Node.JS
-            nvm alias default v12.7.0
-            nvm install v12.7.0
-            nvm use v12.7.0
+            nvm alias default v14.15.4
+            nvm install v14.15.4
+            nvm use v14.15.4
 
             # Download latest code, unzip it into /home/ec2-user/app
             wget https://github.com/implement1/automatic-ecommerce/archive/master.zip 
