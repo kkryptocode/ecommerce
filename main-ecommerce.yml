@@ -69,7 +69,7 @@ Resources:
         configSets: 
           myset: 
            - "config1"
-           - "config2"  
+          # - "config2"  
         config1:
           packages: 
             yum:
