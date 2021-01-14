@@ -169,7 +169,7 @@ Resources:
             #. /home/ec2-user/app/.nvm/nvm.sh
             #. /home/ec2-user/app/.bashrc
             npm install
-           #npm start
+            npm start
             
             echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
              
