@@ -237,7 +237,7 @@ Resources:
         config2:  
           packages:
             yum:
-             ruby: []: 
+             ruby: [] 
           files:
             /home/ec2-user/install:
               source: !Sub "https://aws-codedeploy-${AWS::Region}.s3.amazonaws.com/latest/install"
