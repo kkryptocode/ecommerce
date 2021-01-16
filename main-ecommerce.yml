@@ -204,12 +204,30 @@ Resources:
           myset: 
            - "config1"
            - "config2"  
-        config1:
-          packages: 
+        
+        
+        config1:  
+          packages:
             yum:
+             ruby: [] 
+          files:
+            /home/ec2-user/install:
+              source: !Sub "https://aws-codedeploy-${AWS::Region}.s3.amazonaws.com/latest/install"
+              mode: "000755" # executable
+          commands:
+            00-install-cd-agent:
+              command: "./install auto"
+              cwd: "/home/ec2-user/"       
+
+
+
+
+        config2:
+        #  packages: 
+          #  yum:
             # ruby: []
-              wget: []
-              unzip: []    
+            #  wget: []
+            #  unzip: []    
           
           files:
            /etc/yum.repos.d/mongodb-org-4.4.repo:
@@ -234,18 +252,7 @@ Resources:
             command: "yum install -y mongodb-org"
             cwd: "/etc/yum.repos.d/"
 
-        config2:  
-          packages:
-            yum:
-             ruby: [] 
-          files:
-            /home/ec2-user/install:
-              source: !Sub "https://aws-codedeploy-${AWS::Region}.s3.amazonaws.com/latest/install"
-              mode: "000755" # executable
-          commands:
-            00-install-cd-agent:
-              command: "./install auto"
-              cwd: "/home/ec2-user/"    
+        
 
 
           services:
