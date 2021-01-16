@@ -10,9 +10,9 @@ AWS_ACCOUNT_ID=`aws sts get-caller-identity --profile awsbootstrap \
   --query "Account" --output text`
 CODEPIPELINE_BUCKET="$STACK_NAME-$REGION-codepipeline-$AWS_ACCOUNT_ID"
 
-GH_ACCESS_TOKEN=$(cat /c/Users/EQUITABLE/.githubac/aws-bootstrap-access-token)
-GH_OWNER=$(cat /c/Users/EQUITABLE/.githubac/aws-bootstrap-owner)
-GH_REPO=$(cat /c/Users/EQUITABLE/.githubac/aws-bootstrap-repo)
+GH_ACCESS_TOKEN=$(cat .githubac/aws-bootstrap-access-token)
+GH_OWNER=$(cat .githubac/aws-bootstrap-owner)
+GH_REPO=$(cat .githubac/aws-bootstrap-repo)
 GH_BRANCH=master
 
 
