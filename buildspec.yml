@@ -19,3 +19,13 @@ artifacts:
     - package.json
     - appspec.yml
     - 'node_modules/**/*'
+    - 'client/**/*'
+    - 'config/**/*'
+    - 'dist/**/*'
+    - nodemon.json
+    - 'server/**/*'
+    - template.js
+    - webpack.config.client.js
+    - webpack.config.client.production.js
+    - webpack.config.server.js
+    - yarn.lock
