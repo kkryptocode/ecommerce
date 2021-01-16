@@ -302,9 +302,9 @@ Resources:
             nvm use v14.15.4
 
             # Download latest code, unzip it into /home/ec2-user/app
-            wget https://github.com/implement1/automatic-ecommerce/archive/master.zip 
-            unzip master.zip
-            mv automatic-ecommerce-master app
+            #wget https://github.com/implement1/automatic-ecommerce/archive/master.zip 
+            #unzip master.zip
+            #mv automatic-ecommerce-master app
             
 
             # Create log directory
@@ -317,13 +317,13 @@ Resources:
 
 
             # Run server
-            cd app
-            #. /home/ec2-user/app/.nvm/nvm.sh
-            #. /home/ec2-user/app/.bashrc
-            npm install
-            npm start
+            #cd app
             
-            echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+            
+            #npm install
+            #npm start
+            
+            #echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
              
             
           EOF
@@ -340,9 +340,9 @@ Resources:
           # Signal to CloudFormation that the instance is ready
           /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --region ${AWS::Region} --resource Instance 
           
-      Tags:
-        - Key: Name
-          Value: !Ref AWS::StackName
+    #  Tags:
+      #  - Key: Name
+      #    Value: !Ref AWS::StackName
 
           
 
