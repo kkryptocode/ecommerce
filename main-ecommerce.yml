@@ -188,7 +188,11 @@ Resources:
       Roles:
         - Ref: InstanceRole
   
-  
+  ElasticIP:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+      InstanceId: !Ref Instance
 
 
   Instance:
@@ -340,11 +344,7 @@ Resources:
         - Key: Name
           Value: !Ref AWS::StackName
 
-  ElasticIP:
-    Type: AWS::EC2::EIP
-    Properties:
-      Domain: vpc
-      InstanceId: !Ref Instance        
+          
 
 Outputs:
   InstanceEndpoint:
