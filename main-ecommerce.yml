@@ -229,7 +229,7 @@ Resources:
         config2:
         #  packages: 
           #  yum:
-            # ruby: []
+            # ruby: [] All these are not needed in config2
             #  wget: []
             #  unzip: []    
           
