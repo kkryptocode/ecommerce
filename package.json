@@ -12,9 +12,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/implement1/ecommerce.git"
+    "url": "git+https://github.com/kkryptocode/ecommerce.git"
   },
-  "homepage": "https://github.com/implement1/ecommerce.git",
+  "homepage": "https://github.com/kkryptocode/ecommerce.git",
   "main": "./dist/server.generated.js",
   "scripts": {
     "development": "nodemon",
