@@ -1,0 +1,10 @@
+version: "3"
+services:
+    node-expense:
+        build: .
+        ports:
+            - "3002:3002"
+        volumes:
+            - ./:/app
+        environment: 
+            - PORT=3000            
