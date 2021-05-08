@@ -3,13 +3,14 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
 COPY . ./
-RUN npm start
+EXPOSE 3002
+#RUN npm start
 #FROM nginx:1.17.0-alpine
-FROM duluca/minimal-node-web-server:lts-alpine
+#FROM duluca/minimal-node-web-server:lts-alpine
 
-WORKDIR /usr/src/app
-COPY --from=build app/dist/server.generated.js public
-ENTRYPOINT [ "npm", "start" ]
+#WORKDIR /usr/src/app
+#COPY --from=build app/dist/server.generated.js public
+CMD [ "node", "dist/server.generated.js" ]
 
 
 
