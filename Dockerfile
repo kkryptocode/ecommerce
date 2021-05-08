@@ -8,7 +8,7 @@ RUN npm start
 FROM duluca/minimal-nginx-web-server:1-alpine as webserver
 
 ENV BUILDER_SRC_DIR=/usr/src
-COPY --from=build $BUILDER_SRC_DIR/dist /var/www
+COPY --from=build app/dist /var/www
 CMD 'nginx'
 
 
