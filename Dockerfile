@@ -5,11 +5,11 @@ RUN npm install
 COPY . ./
 RUN npm start
 #FROM nginx:1.17.0-alpine
-FROM duluca/minimal-nginx-web-server:1-alpine as webserver
+FROM duluca/minimal-node-web-server:lts-alpine
 
-ENV BUILDER_SRC_DIR=/usr/src
-COPY --from=build app/dist /var/www
-CMD 'nginx'
+WORKDIR /usr/src/app
+COPY --from=build app/dist/server.generated.js public
+ENTRYPOINT [ "npm", "start" ]
 
 
 
