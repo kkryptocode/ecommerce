@@ -4,16 +4,25 @@ COPY package.json package-lock.json ./
 RUN npm install
 COPY . ./
 RUN npm start
-FROM nginx:1.17.0-alpine
+#FROM nginx:1.17.0-alpine
+FROM duluca/minimal-nginx-web-server:1-alpine as webserver
+
+ENV BUILDER_SRC_DIR=/usr/src
+COPY --from=build $BUILDER_SRC_DIR/dist /var/www
+CMD 'nginx'
+
+
+
+
 
 # Copy the react build from Stage 1
-COPY --from=build /app/dist /var/www
+#COPY --from=build /app/dist /var/www
 
 # Copy our custom nginx config
-COPY nginx.conf /etc/nginx/nginx.conf
+#COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose port 80 to the Docker host, so we can access it 
 # from the outside.
-EXPOSE 80
+#EXPOSE 80
 
-ENTRYPOINT ["nginx","-g","daemon off;"]
+#ENTRYPOINT ["nginx","-g","daemon off;"]
