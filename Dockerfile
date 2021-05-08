@@ -3,11 +3,11 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
 COPY . ./
-RUN npm run build
+RUN npm start
 FROM nginx:1.17.0-alpine
 
 # Copy the react build from Stage 1
-COPY --from=build /app/build /var/www
+COPY --from=build /app/dist /var/www
 
 # Copy our custom nginx config
 COPY nginx.conf /etc/nginx/nginx.conf
