@@ -4,7 +4,7 @@ COPY package.json package-lock.json ./
 RUN npm install
 COPY . ./
 EXPOSE 3002
-RUN npm run development
+RUN npm run build
 #FROM nginx:1.17.0-alpine
 #FROM duluca/minimal-node-web-server:lts-alpine
 
