@@ -7,7 +7,9 @@ services:
         #volumes:
         #    - ./:/app
         environment: 
-            - PORT=3002            
+            - PORT=3002  
+        depends_on:
+            - mongo                     
     mongo:
         image: mongo 
         environment:
