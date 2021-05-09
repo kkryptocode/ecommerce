@@ -8,3 +8,8 @@ services:
         #    - ./:/app
         environment: 
             - PORT=3002            
+    mongo:
+        image: mongo 
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=kkmouf 
+            - MONGO_INITDB_ROOT_PASSWORD=123456      
