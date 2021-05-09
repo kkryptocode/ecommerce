@@ -10,7 +10,8 @@ EXPOSE 3002
 
 #WORKDIR /usr/src/app
 #COPY --from=build app/dist/server.generated.js public
-CMD [ "node", "dist/server.generated.js" ]
+#CMD [ "node", "dist/server.generated.js" ]
+CMD [ "npm", "start" ]
 
 
 
