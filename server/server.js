@@ -5,11 +5,12 @@ import bidding from './controllers/bidding.controller'
 
 // Connection URL
 mongoose.Promise = global.Promise
-mongoose.connect(config.mongoUri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: true })
-mongoose.connection.on('error', () => {
-  throw new Error(`unable to connect to database: ${config.mongoUri}`)
-})
-
+//mongoose.connect(config.mongoUri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: true })
+//mongoose.connection.on('error', () => {
+  //throw new Error(`unable to connect to database: ${config.mongoUri}`)
+//})
+mongoose.connect("mongodb://kkmouf:123456@172.18.0.3:27017/?authSource=admin"
+).then(() => console.log("Successful")).catch((e) => console.log(e));
 const server = app.listen(config.port, (err) => {
   if (err) {
     console.log(err)
