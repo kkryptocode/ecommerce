@@ -11,7 +11,7 @@ RUN npm run build
 #WORKDIR /usr/src/app
 #COPY --from=build app/dist/server.generated.js public
 #CMD [ "node", "dist/server.generated.js" ]
-CMD [ "npm", "start" ]
+CMD [ "npm", "run", "development" ]
 
 
 
