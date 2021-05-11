@@ -12,9 +12,8 @@ RUN npm run build
 #COPY --from=build app/dist/server.generated.js public
 #CMD [ "node", "dist/server.generated.js" ]
 
-#CMD [ "npm", "run", "development"]
+CMD [ "npm", "run", "development"]
 
-CMD ["sh", "-c", "npm run development ; echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p"]
 
 
 
