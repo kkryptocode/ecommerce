@@ -3,6 +3,10 @@ node_modules
 main-ecommerce.yml
 start-service.sh
 stop-service.sh
+appspec.yml
+buildspec.yml
+deploy-ecommerce.sh
+main-ecommerce.yml
 
 
 appspec.yml
