@@ -1,0 +1,6 @@
+dependencies:
+- name: mongodb
+  alias: ecommerce-app-1-db
+  version: 10.15.2
+  repository: https://charts.bitnami.com/bitnami
+
